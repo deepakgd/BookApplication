@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+        <div class="col-md-12">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                  
+                    <input type="text" class="form-control input-lg" placeholder="Search by title/ISBN" ng-model="title" />
+                    <span class="input-group-btn">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div><br>
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="book in books | filter:title">
+      <div class="panel">
+        <div class="panel-body">
+          <center><h3><i class="fa fa-star" aria-hidden="true" ng-if="book.isFavorite"></i> {{book.title}} </h3></center>
+          <img ng-src="{{book.imageUrl}}" width="326" height="326">
+          <center><h4>ISBN: {{book.isbn}}</h4></center>
+          <a ng-href="/book/{{book._id}}" role="button" class="btn btn-primary custom-btn">View Details</a>
+          <button role="button" class="btn btn-warning custom-btn" ng-disabled="book.isFavorite" ng-click="addFavorites(book)">Add to Favorites</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

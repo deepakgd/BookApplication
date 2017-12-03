@@ -1,0 +1,80 @@
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Add Book</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="title">Title</label>  
+  <div class="col-md-4">
+  <input id="title" name="title" type="text" placeholder="" class="form-control input-md" ng-model="book.title">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="isbn">ISBN</label>  
+  <div class="col-md-4">
+  <input id="isbn" name="isbn" type="text" placeholder="" class="form-control input-md" ng-model="book.isbn">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="author">Author</label>  
+  <div class="col-md-4">
+  <input id="author" name="author" type="text" placeholder="" class="form-control input-md" ng-model="book.author">
+    
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="description" name="description" ng-model="book.description"></textarea>
+  </div>
+</div>
+
+<!-- File Button --> 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="filebutton"></label>
+  <div class="col-md-4">
+     <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+      Select File</button>
+  <br><br>
+  File:
+  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+          <div style="width:{{f.progress}}%"  
+               ng-bind="f.progress + '%'"></div>
+      </span>
+  </div>     
+  {{errorMsg}}
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group" ng-repeat="page in book.pages">
+  <label class="col-md-4 control-label" for="page">{{page.no}}</label>
+  <div class="col-md-4">                     
+  	
+    <textarea class="form-control" id="page" name="page" ng-model="page.content"></textarea>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="save"></label>
+  <div class="col-md-8">
+    <button id="save" name="save" class="btn btn-success" ng-click="save()">Save</button>
+    <button id="page" name="page" class="btn btn-warning" ng-click="addPage()">Add Page</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

@@ -1,0 +1,16 @@
+ <div id="mybook" ng-if="isEnabled">
+    <div ng-repeat="item in book.pages">
+      <h3>{{item.no}}</h3>
+      <p>
+        {{item.content}}}
+      </p>
+    </div>
+
+  </div>
+  <script>
+    $(function() {
+      // $('#mybook').booklet();
+    });
+  </script>
+
+  {{isEnabled}}

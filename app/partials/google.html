@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+        <div class="col-md-12">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                <form ng-submit="search()">
+                	   
+                    <input type="text" class="form-control input-lg" placeholder="Search Google Books" ng-model="title" />
+                    <span ng-if="title">(hit enter)</span>
+                </form>
+
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div><br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="book in books">
+      <div class="panel">
+        <div class="panel-body">
+          <center><h3>{{book.title | limitTo: 30}}</h3></center>
+          <img ng-src="{{book.imageUrl}}" width="326" height="326" ng-if="book.imageUrl">
+          <img ng-src="{{book.thumbnail}}" width="326" height="326" ng-if="book.thumbnail">
+          <a href="{{book.link}}" role="button" class="btn btn-primary custom-btn" target="_blank">View Details</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
